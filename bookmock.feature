@@ -25,9 +25,10 @@ Scenario: pathMatches('/books') && methodIs('get')
 Scenario: pathMatches('/book/{id}') && methodIs('get') && paramExists('name')
     * def content = 'Book title - ' + paramValue('name')
     * def responseStatus = 200
-    * def responseDelay = 4000
+    * def responseDelay = 2000
     * def id = pathParams.id
-    * def response = {id :'#(id)', content:'#(content)'}
+    * def name = paramValue('name')
+    * def response = {id :'#(id)', name:'#(name)', content:'#(content)'}
  
 Scenario: pathMatches('/book/{id}') && methodIs('get')
     * def result = books[pathParams.id]
