@@ -22,11 +22,11 @@ Scenario: pathMatches('/books') && methodIs('get')
     * def responseStatus = 200
     * def response = read('data/books.json')
 
-Scenario: pathMatches('/book') && methodIs('get') && paramExists('name')
+Scenario: pathMatches('/book/{id}') && methodIs('get') && paramExists('name')
     * def content = 'Book title - ' + paramValue('name')
     * def responseStatus = 200
     * def responseDelay = 4000
-    * def id = uuid()
+    * def id = pathParams.id
     * def response = {id :'#(id)', content:'#(content)'}
  
 Scenario: pathMatches('/book/{id}') && methodIs('get')
