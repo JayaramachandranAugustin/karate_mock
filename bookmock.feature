@@ -23,6 +23,7 @@ Scenario: pathMatches('/books') && methodIs('get')
     * def response = read('data/books.json')
 
 Scenario: pathMatches('/book/{id}') && methodIs('get') && paramExists('name')
+    * print 'headers:', requestHeaders
     * def content = 'Book title - ' + paramValue('name')
     * def responseStatus = 200
     * def responseDelay = 2000
